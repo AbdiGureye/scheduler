@@ -29,6 +29,7 @@ export default function Appointment(props){
     .then(() => {
       transition(EMPTY)
     })
+    .catch(() => transition(ERROR_DELETE, true))
   }
   const save = function(name, interviewer) {
     const int = {
@@ -39,6 +40,7 @@ export default function Appointment(props){
     transition(SAVING);
     props.bookInterview(props.id, int)
     .then(() => transition(SHOW))
+    .catch(() => transition(ERROR_SAVE, true))
   }
 
   const edit = function() {
@@ -72,6 +74,8 @@ export default function Appointment(props){
           onCancel={back}
         />
       )}
+      {mode === ERROR_DELETE && <Error onClose={back} message="Please try deleting again" />}
+      {mode === ERROR_SAVE && <Error onClose={back} message="Please try saving again" />}
 
     </article>
   )}
