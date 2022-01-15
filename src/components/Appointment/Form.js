@@ -7,6 +7,7 @@ export default function Form(props) {
 
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
+  const [error, setError] = useState("");
 
   const reset = () => {
     setStudent("");
@@ -18,8 +19,11 @@ export default function Form(props) {
     props.onCancel();
   }
   const saving = () => {
-    console.log(student)
-    console.log(interviewer)
+    if(student = "") {
+      setError("Please enter a student name");
+      return;
+    }
+    setError("")
     props.onSave(student, interviewer)
   }
 
@@ -44,7 +48,7 @@ export default function Form(props) {
   </section>
   <section className="appointment__card-right">
     <section className="appointment__actions">
-      <Button danger onClick={props.onCancel}>Cancel</Button>
+      <Button danger onClick={cancel}>Cancel</Button>
       <Button confirm onClick={saving}>Save</Button>
     </section>
   </section>
