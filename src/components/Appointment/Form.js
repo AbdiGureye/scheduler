@@ -19,7 +19,7 @@ export default function Form(props) {
     props.onCancel();
   }
   const saving = () => {
-    if(student = "") {
+    if(student === "") {
       setError("Please enter a student name");
       return;
     }
