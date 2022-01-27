@@ -19,6 +19,10 @@ export default function Form(props) {
     props.onCancel();
   }
   const saving = () => {
+    if(interviewer === null){
+      setError("Interviewer must be chosen")
+      return;
+    }
     if(student === "") {
       setError("Please enter a student name");
       return;
