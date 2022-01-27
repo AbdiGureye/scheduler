@@ -44,6 +44,7 @@ export default function Form(props) {
         onChange={e => setStudent(e.target.value)}
       />
     </form>
+    <section className="appointment__validation">{error}</section>
     <InterviewerList
       interviewers={props.interviewers}
       value={interviewer} 
