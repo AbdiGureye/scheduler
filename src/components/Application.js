@@ -102,7 +102,6 @@ export default function Application(props) {
         return {...state, appointments, days }
       })
     })
-    .catch((error) => console.log(error))
   }
 
     const dailyAppointments = getAppointmentsForDay(state, state.day)
